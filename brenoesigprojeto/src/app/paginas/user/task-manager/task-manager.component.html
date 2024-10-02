@@ -1,0 +1,101 @@
+<h2 class="ola-personalizado">Olá, {{ username }}! :)</h2>
+
+<button class="botao-logout" (click)="logout()">Sair</button>
+<div class="task-manager">
+  <h3>Criar Nova Tarefa</h3>
+  <form (ngSubmit)="createTask()" class="create-task">
+    <div class="task-inputs">
+      <div class="task-inputs2">
+        <input [(ngModel)]="formTask.title" placeholder="Título" name="title" required>
+        <input [(ngModel)]="formTask.responsavel" placeholder="Responsável" name="responsavel" required>
+        <select [(ngModel)]="formTask.priority" name="priority">
+          <option value="alta">Alta</option>
+          <option value="média">Média</option>
+          <option value="baixa">Baixa</option>
+        </select>
+        <input type="date" [(ngModel)]="formTask.deadline" name="deadline" required>
+      </div>
+      <input [(ngModel)]="formTask.description" placeholder="Descrição" name="description">
+    </div>
+    <button type="submit">Criar Tarefa</button>
+  </form>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label for="filterPriority">Filtrar Prioridade:</label>
+      <select id="filterPriority" [(ngModel)]="filterPriority" (ngModelChange)="applyFilter()">
+        <option value="">Todos</option>
+        <option value="alta">Alta</option>
+        <option value="média">Média</option>
+        <option value="baixa">Baixa</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filterStatus">Filtrar Status:</label>
+      <select id="filterStatus" [(ngModel)]="filterStatus" (ngModelChange)="applyFilter()">
+        <option value="">Todos</option>
+        <option value="Em andamento">Em andamento</option>
+        <option value="Concluída">Concluída</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="filterDeadline">Filtrar Prazo:</label>
+      <select id="filterDeadline" [(ngModel)]="filterDeadlineOption" (ngModelChange)="applyFilter()">
+        <option value="menor">Menor Prazo</option>
+        <option value="maior">Maior Prazo</option>
+      </select>
+    </div>
+  </div>
+
+  <h3>Tarefas</h3>
+  <table class="tasks">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Prioridade</th>
+        <th>Data Final</th>
+        <th>Status</th>
+        <th>Responsável</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of filteredTasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.deadline | date:'dd/MM/yyyy' }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.responsavel }}</td>
+        <td class="task-actions">
+          <button (click)="openEditModal(task)">
+            <img src="../../../../assets/image/editar.png" alt="">
+          </button>
+
+          <button (click)="markAsConcluded(task)"><img src="../../../../assets/image/concluir.png" alt=""></button>
+          <button (click)="deleteTask(task.id!)"><img src="../../../../assets/image/delete.png" alt=""></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="editModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('editModal').style.display='none'">&times;</span>
+      <h3>Editar Tarefa</h3>
+      <form (ngSubmit)="updateTask()">
+        <input [(ngModel)]="editTaskForm.title" placeholder="Título" name="editTitle" required>
+        <input [(ngModel)]="editTaskForm.responsavel" placeholder="Responsável" name="editResponsavel" required>
+        <select [(ngModel)]="editTaskForm.priority" name="editPriority">
+          <option value="alta">Alta</option>
+          <option value="média">Média</option>
+          <option value="baixa">Baixa</option>
+        </select>
+        <input type="date" [(ngModel)]="editTaskForm.deadline" name="editDeadline" required>
+        <input [(ngModel)]="editTaskForm.description" placeholder="Descrição" name="editDescription" required>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<main class="main-class">
+  <section class="form-section">
+    <img src="../../../assets/image/logo.png" alt="logo">
+    <h2>Entre na sua conta</h2>
+
+    <form [formGroup]="loginForm">
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="seu@email.com"
+        class="input-custom"
+      />
+
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="senha"
+        class="input-custom"
+      />
+
+      <div class="buttons-container">
+        <button
+          class="primary-btn"
+          (click)="submit()"
+          [disabled]="!loginForm.valid"
+        >Login</button>
+
+        <button
+          class="secondary-btn"
+          (click)="navigate()"
+        >Cadastre-se</button>
+      </div>
+    </form>
+  </section>
+</main>

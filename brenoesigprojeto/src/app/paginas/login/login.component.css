@@ -1,0 +1,127 @@
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #333;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff0000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.main-class {
+  min-height: 100vh;
+  background-color: #d1c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form-section{
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  margin-left: 30px;
+  height: 400px;
+
+ img {
+  width: 150px;
+  margin-bottom: 20px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+    button {
+      background-color: #616161;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      button:hover {
+        background-color: #0062cc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+    span {
+      display: block;
+      margin-bottom: 10px;
+    }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 49%;
+  margin-right: 2%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+    &:disabled {
+      opacity: 0.6;
+    }
+    .primary-btn:hover {
+      background-color: #0062cc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.secondary-btn {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 49%;
+  margin-left: 2%;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  .secondary-btn:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+}
+
+
+
