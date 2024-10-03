@@ -69,9 +69,6 @@ Um arquivo de backup do banco de dados PostgreSQL (`meu_banco.dump`) está inclu
 O banco de dados será restaurado com todas as tabelas e dados necessários para rodar a aplicação.
 
 Lembre-se de conferir o **application.properties** caso seja necessário mude alguma variavél compátivel com o banco criado.
-
-(![](https://i.imgur.com/iy6RjlF.png))
-
 ---
 
 ## Como Executar o Projeto Localmente
